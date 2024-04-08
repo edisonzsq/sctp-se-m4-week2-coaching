@@ -1,131 +1,93 @@
 # Coaching | SCTP in SE | Module 4 | DevOps Week 2
 
 <details>
-<summary>1. Docker Commands Quizzes</summary>
+<summary><b>1. Docker Commands Quiz</b></summary>
 
-## Q1 - Which commands build an image?
+Test your Docker command knowledge with the following quiz.
 
-A: docker build
+### Q1: Which command is used to build a Docker image?
+- **A:** `docker build` (Correct)
+- **B:** `docker ps`
+- **C:** `docker ls`
+- **D:** `docker image ls`
 
-B: docker ps
+### Q2: What could cause a `docker build` command to fail?
+- **A:** Incorrect directory
+- **B:** Docker not installed (Correct)
+- **C:** Missing Dockerfile in the directory (Correct)
+- **D:** Docker Compose not installed
 
-C: docker ls
+### Q3: Which command runs an image as a container?
+- **A:** `docker build`
+- **B:** `docker run` (Correct)
+- **C:** `docker ps`
+- **D:** `docker launch`
 
-D: docker image ls
+### Q4: How can you list containers that are currently running?
+- **A:** `docker build`
+- **B:** `docker ps` (Correct)
+- **C:** `docker ls`
+- **D:** `docker launch`
 
-## Q2 - What could be the reason(s) when `docker build` returns an error?
-
-A: You are on a wrong directory
-
-B: You did not install docker
-
-C: There is no dockerfile in the same directory
-
-D: You did not install docker compose
-
-## Q3 - Which command launch image as a container instance?
-
-A: docker build
-
-B: docker run
-
-C: docker ps
-
-D: docker launch
-
-## Q4 - How can I view containers that are currently running?
-
-A: docker build
-
-B: docker ps
-
-C: docker ls
-
-D: Use docker desktop
-
-## Q5 - Docker is used for production and not for development
-
-A: True
-
-B: False
+### Q5: Docker is exclusively used for production environments and is not suitable for development.
+- **A:** True
+- **B:** False (Correct)
 
 </details>
 
 <details>
-<summary>2. Understanding Servers & Virtualization</summary>
+<summary><b>2. Servers & Virtualization Explained</b></summary>
 
-## Servers
+### Servers
+![Servers](./assets/servers.png)
+Initially, applications were hosted on bare-metal servers, each containing a single operating system.
 
-<img src="./assets/servers.png" />
+### Virtualization
+![Virtualization](./assets/server_virtualization-traditional_virtual_architecture_mobile.jpg)
+Virtualization technology creates multiple virtual instances from physical resources, utilizing a hypervisor to manage and isolate these environments, enhancing efficiency and reducing the need for physical hardware.
 
-Applications started being hosted in bare metal servers. One server contains one operating systems.
-
-## Virtualization
-
-<img src="./assets/server_virtualization-traditional_virtual_architecture_mobile.jpg" />
-
-- Virtualization is a technology that allows for the creation of virtual instances of physical resources.
-- By using a hypervisor or virtualization software, it divides the physical resources into multiple isolated virtual environments
-- This approach maximizes resource utilization, enhances flexibility in resource management, and can significantly reduce costs by minimizing the need for physical hardware.
-
-## Virtualization vs Container
-
-<img src="./assets/vm-vs-container.png" />
-
-- Virtualization divides a single physical server into multiple, isolated virtual machines (VMs).
-- Containers, on the other hand, share the same operating system kernel and isolate the application processes from each other, making them lighter and more efficient than VMs. 
-- While virtualization provides broad compatibility and strong isolation at the cost of higher resource consumption, containers offer rapid deployment, less overhead, and more efficient use of system resources, ideal for microservices and cloud-native applications.
+### Virtualization vs Containers
+![Virtualization vs Container](./assets/vm-vs-container.png)
+While virtualization splits a single server into several virtual machines, containers share the OS kernel but isolate application processes, offering a lightweight and efficient alternative, particularly suited for microservices and cloud-native applications.
 
 </details>
 
 <details>
-<summary>3. How Docker Works</summary>
+<summary><b>3. Demystifying Docker</b></summary>
 
-<img src="./assets/how-docker-works.png" />
+### Dockerfile
+- Defines the container environment. Docker builds images from Dockerfiles, specifying base images, files, commands, and configurations.
 
-- **Dockerfile**
-  - A Dockerfile is a text file that contains a list of commands Docker uses to build an image. It specifies the base image to use, the files to copy into the image, the commands to run, and other configurations.
-  - Developers write Dockerfiles to define the environment of the container, including installing software, setting environment variables, and configuring settings.
-  - The Docker build process takes the Dockerfile as input and executes the instructions line by line to create a Docker image.
+### Docker Image
+- Immutable packages containing everything needed to run an application. Stored in Docker registries like Docker Hub, they're foundational for creating containers.
 
-- **Docker Image**
-  - A Docker image is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and config files.
-  - Images are built from Dockerfiles and are stored in a Docker registry, such as Docker Hub, from where they can be downloaded and used to create containers.
-  - Docker images are immutable, meaning once they are created, they do not change. If you need to make changes, you create a new image with the desired changes.
+### Docker Container
+- Runtime instances of Docker images, isolating applications and their dependencies from the underlying system and each other.
 
-- **Docker Container**
-  - A Docker container is a runtime instance of a Docker image. When you run an image, Docker creates a container from that image.
-  - Containers run the actual applications, keeping them isolated from the host system and from each other. Each container has its own filesystem, networking, and isolated process space.
-  - Containers can be started, stopped, moved, and deleted independently. They are lightweight because they share the host system’s kernel and do not require an OS per application.
-
-## Image Registry
-
-<img src="./assets/image-registry.png" />
-
-An image registry is a centralized, online repository where Docker images can be stored, shared, and managed. It allows developers to push images to the registry and pull images from the registry to their local system or to a production environment, facilitating easy distribution and version control of containerized applications. 
-
-Popular examples include Docker Hub, which is the default public registry for Docker images, and private registries like Amazon Elastic Container Registry (ECR) and Azure Container Registry (ACR), which offer controlled access for storing proprietary images.
+### Image Registry
+![Image Registry](./assets/image-registry.png)
+A hub for storing, sharing, and managing Docker images. Docker Hub and private registries like Amazon ECR and Azure ACR facilitate image distribution and version control.
 
 </details>
 
 <details>
-<summary>4. Docker Compose</summary>
+<summary><b>4. Mastering Docker Compose</b></summary>
 
-<img src="./assets/basic-taxonomy.png" />
+![Docker Compose](./assets/basic-taxonomy.png)
 
-Docker Compose is a tool for defining and running multi-container Docker applications. With a single command, you can use a YAML file to configure all of your application’s services, networks, and volumes, and then create and start all the services from your configuration. It simplifies the deployment and scaling of applications by allowing you to manage the entire lifecycle of your application with simple commands, making it easier to build, test, and deploy multi-container applications.
+Learn how Docker Compose orchestrates multi-container applications, simplifying deployment and scaling with YAML configuration files. Explore an example `docker-compose.yml` file [here](https://github.com/edisonzsq/sample-docker-compose/blob/main/docker-compose.yml).
 
-How `docker-compose.yml` file looks like: https://github.com/edisonzsq/sample-docker-compose/blob/main/docker-compose.yml
 </details>
 
 <details>
-<summary>5. Challenge</summary>
+<summary><b>5. Practical Challenge: Containerize a Java Application</b></summary>
 
-## Challenge - Containerize your Module 3 Java Application
+Containerize your Module 3 Java application for a hands-on Docker Compose experience.
 
-Reference this repository: https://github.com/edisonzsq/spring-boot-demo
+### Challenge Repository
+Explore and utilize this [Spring Boot demo](https://github.com/edisonzsq/spring-boot-demo) repository.
 
-Commands to try the repository:
+### Commands to Begin
 
 ```
 git clone https://github.com/edisonzsq/spring-boot-demo
@@ -134,6 +96,6 @@ git checkout docker_compose_with_postgres
 docker compose up
 ```
 
-See the `readme.md` file in the repository for instruction to test the API Endpoint.
+Refer to the `README.md` for API endpoint testing instructions.
 
 </details>
