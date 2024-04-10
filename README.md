@@ -6,32 +6,32 @@
 Test your Docker command knowledge with the following quiz.
 
 ### Q1: Which command is used to build a Docker image?
-- **A:** `docker build` (Correct)
+- **A:** `docker build`
 - **B:** `docker ps`
 - **C:** `docker ls`
 - **D:** `docker image ls`
 
 ### Q2: What could cause a `docker build` command to fail?
 - **A:** Incorrect directory
-- **B:** Docker not installed (Correct)
-- **C:** Missing Dockerfile in the directory (Correct)
+- **B:** Docker not installed
+- **C:** Missing Dockerfile in the directory
 - **D:** Docker Compose not installed
 
 ### Q3: Which command runs an image as a container?
 - **A:** `docker build`
-- **B:** `docker run` (Correct)
+- **B:** `docker run`
 - **C:** `docker ps`
 - **D:** `docker launch`
 
 ### Q4: How can you list containers that are currently running?
 - **A:** `docker build`
-- **B:** `docker ps` (Correct)
+- **B:** `docker ps`
 - **C:** `docker ls`
 - **D:** `docker launch`
 
 ### Q5: Docker is exclusively used for production environments and is not suitable for development.
 - **A:** True
-- **B:** False (Correct)
+- **B:** False
 
 </details>
 
