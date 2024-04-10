@@ -1,131 +1,128 @@
 # Coaching | SCTP in SE | Module 4 | DevOps Week 2
 
 <details>
-<summary>1. Docker Commands Quizzes</summary>
+<summary><b>1. Docker Commands Quiz</b></summary>
 
-## Q1 - Which commands build an image?
+Test your Docker command knowledge with the following quiz.
 
-A: docker build
+### Q1: Which command is used to build a Docker image?
+- **A:** `docker build` (Correct)
+- **B:** `docker ps`
+- **C:** `docker ls`
+- **D:** `docker image ls`
 
-B: docker ps
+### Q2: What could cause a `docker build` command to fail?
+- **A:** Incorrect directory
+- **B:** Docker not installed (Correct)
+- **C:** Missing Dockerfile in the directory (Correct)
+- **D:** Docker Compose not installed
 
-C: docker ls
+### Q3: Which command runs an image as a container?
+- **A:** `docker build`
+- **B:** `docker run` (Correct)
+- **C:** `docker ps`
+- **D:** `docker launch`
 
-D: docker image ls
+### Q4: How can you list containers that are currently running?
+- **A:** `docker build`
+- **B:** `docker ps` (Correct)
+- **C:** `docker ls`
+- **D:** `docker launch`
 
-## Q2 - What could be the reason(s) when `docker build` returns an error?
-
-A: You are on a wrong directory
-
-B: You did not install docker
-
-C: There is no dockerfile in the same directory
-
-D: You did not install docker compose
-
-## Q3 - Which command launch image as a container instance?
-
-A: docker build
-
-B: docker run
-
-C: docker ps
-
-D: docker launch
-
-## Q4 - How can I view containers that are currently running?
-
-A: docker build
-
-B: docker ps
-
-C: docker ls
-
-D: Use docker desktop
-
-## Q5 - Docker is used for production and not for development
-
-A: True
-
-B: False
+### Q5: Docker is exclusively used for production environments and is not suitable for development.
+- **A:** True
+- **B:** False (Correct)
 
 </details>
 
 <details>
-<summary>2. Understanding Servers & Virtualization</summary>
+<summary><b>2. Servers & Virtualization Explained</b></summary>
 
-## Servers
+### Servers
+![Servers](./assets/servers.png)
+In the early days of computing, applications were hosted on bare-metal servers. These servers are the physical hardware that underpins much of our digital world. A bare-metal server typically runs a single operating system and is dedicated to a single tenant or application. This approach ensured maximum performance for the application but was not without its drawbacks. Each server needed to be individually maintained and managed, leading to increased operational complexity and costs. Additionally, this one-to-one relationship between servers and applications meant that resources could be underutilized, as a server might not always be operating at full capacity.
 
-<img src="./assets/servers.png" />
+### Virtualization
+![Virtualization](./assets/server_virtualization-traditional_virtual_architecture_mobile.jpg)
+Virtualization technology was a game-changer for IT infrastructure. By introducing a layer called a hypervisor above the physical hardware, it became possible to divide a single physical server into multiple isolated virtual machines (VMs). Each VM acts like a separate server, capable of running its own operating system and applications. This innovation dramatically increased the efficiency of resource utilization.
 
-Applications started being hosted in bare metal servers. One server contains one operating systems.
+The benefits of virtualization include:
 
-## Virtualization
+1. Resource Optimization: By consolidating multiple VMs on a single server, organizations can significantly reduce their hardware requirements.
+2. Cost Reduction: Fewer physical servers mean lower hardware and energy costs.
+Improved Flexibility and Scalability: Virtual machines can be quickly provisioned, copied, and moved, allowing for agile development and testing environments.
+Enhanced Disaster Recovery: Virtualization simplifies backup and disaster recovery processes, as virtual machines can be easily replicated and restored.
 
-<img src="./assets/server_virtualization-traditional_virtual_architecture_mobile.jpg" />
+### Virtualization vs Containers
+![Virtualization vs Container](./assets/vm-vs-container.png)
+While virtualization was a significant advancement, the technology's evolution didn't stop there. Containers emerged as a lighter, more efficient alternative to VMs, especially suited for microservices and cloud-native applications. Unlike VMs, which virtualize the entire operating system, containers virtualize at the application level, sharing the host OS kernel. This means containers are more lightweight and start much faster than VMs.
 
-- Virtualization is a technology that allows for the creation of virtual instances of physical resources.
-- By using a hypervisor or virtualization software, it divides the physical resources into multiple isolated virtual environments
-- This approach maximizes resource utilization, enhances flexibility in resource management, and can significantly reduce costs by minimizing the need for physical hardware.
+Key distinctions include:
 
-## Virtualization vs Container
+1. Isolation Level: Containers provide process-level isolation, while VMs offer full isolation of virtualized hardware for each instance.
+2. Performance: Containers have less overhead, leading to better performance and more efficient resource use compared to VMs.
+3. Portability: Containers include all necessary application code and dependencies, making them highly portable across different computing environments.
+4. Use Cases: VMs are still preferred for applications requiring full isolation, extensive resources, or specific OS environments. Containers are ideal for microservices, dev/test scenarios, and applications where density and efficiency are critical.
 
-<img src="./assets/vm-vs-container.png" />
+### An Analogy
 
-- Virtualization divides a single physical server into multiple, isolated virtual machines (VMs).
-- Containers, on the other hand, share the same operating system kernel and isolate the application processes from each other, making them lighter and more efficient than VMs. 
-- While virtualization provides broad compatibility and strong isolation at the cost of higher resource consumption, containers offer rapid deployment, less overhead, and more efficient use of system resources, ideal for microservices and cloud-native applications.
+Imagine you're planning to open several restaurants, each offering a different cuisine. Think of each restaurant as an application, and the building where it's housed as the server hardware.
 
-</details>
+1. Virtualization: Apartment Complexes
+Virtualization can be compared to building an apartment complex on your plot of land. Each apartment in the complex is like a virtual machine (VM) - a separate, self-contained unit that shares the overall structure's physical resources (the land and building) but has its own utilities and facilities (like water, electricity, and gas). Each apartment (VM) can be customized to the needs of its occupants (different operating systems and applications), but they all share the underlying infrastructure. This setup allows for efficient use of space (hardware resources), but each apartment still maintains a level of isolation and independence, with its own secured entrances and facilities.
 
-<details>
-<summary>3. How Docker Works</summary>
+2. Containers: Food Trucks in a Park
+On the other hand, using containers is like setting up food trucks in a public park. The park is the server's operating system, and each food truck is a container. All the food trucks use the park's existing facilities - like water, electricity, and seating areas - but each offers a unique menu (application). Food trucks are quicker and cheaper to set up than building an entire apartment complex. They can move around or make menu changes (application updates) with much more flexibility. However, they rely on the park's existing infrastructure and cannot operate without it, similar to how containers share the host operating system.
 
-<img src="./assets/how-docker-works.png" />
-
-- **Dockerfile**
-  - A Dockerfile is a text file that contains a list of commands Docker uses to build an image. It specifies the base image to use, the files to copy into the image, the commands to run, and other configurations.
-  - Developers write Dockerfiles to define the environment of the container, including installing software, setting environment variables, and configuring settings.
-  - The Docker build process takes the Dockerfile as input and executes the instructions line by line to create a Docker image.
-
-- **Docker Image**
-  - A Docker image is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, environment variables, and config files.
-  - Images are built from Dockerfiles and are stored in a Docker registry, such as Docker Hub, from where they can be downloaded and used to create containers.
-  - Docker images are immutable, meaning once they are created, they do not change. If you need to make changes, you create a new image with the desired changes.
-
-- **Docker Container**
-  - A Docker container is a runtime instance of a Docker image. When you run an image, Docker creates a container from that image.
-  - Containers run the actual applications, keeping them isolated from the host system and from each other. Each container has its own filesystem, networking, and isolated process space.
-  - Containers can be started, stopped, moved, and deleted independently. They are lightweight because they share the host system’s kernel and do not require an OS per application.
-
-## Image Registry
-
-<img src="./assets/image-registry.png" />
-
-An image registry is a centralized, online repository where Docker images can be stored, shared, and managed. It allows developers to push images to the registry and pull images from the registry to their local system or to a production environment, facilitating easy distribution and version control of containerized applications. 
-
-Popular examples include Docker Hub, which is the default public registry for Docker images, and private registries like Amazon Elastic Container Registry (ECR) and Azure Container Registry (ACR), which offer controlled access for storing proprietary images.
+So:
+1. Virtualization (Apartment Complexes): Offers more isolation and independence at the cost of being more resource-intensive to set up and maintain. Each apartment is like a full-fledged server that can run its own operating system.
+2. Containers (Food Trucks): More resource-efficient, sharing the underlying infrastructure of the park (operating system) but less isolated. They're quicker to set up and more flexible in deployment, ideal for services that need to scale up or down rapidly.
 
 </details>
 
 <details>
-<summary>4. Docker Compose</summary>
+<summary><b>3. Demystifying Docker</b></summary>
 
-<img src="./assets/basic-taxonomy.png" />
+### Dockerfile
+Think of a Dockerfile as the blueprint for your application's container. It contains a set of instructions that Docker uses to build the container's environment. Each instruction in a Dockerfile adds a layer to the image, with each layer representing a part of the application. For example, one layer might contain your application code, another the libraries it depends on, and another the runtime environment it needs to run.
 
-Docker Compose is a tool for defining and running multi-container Docker applications. With a single command, you can use a YAML file to configure all of your application’s services, networks, and volumes, and then create and start all the services from your configuration. It simplifies the deployment and scaling of applications by allowing you to manage the entire lifecycle of your application with simple commands, making it easier to build, test, and deploy multi-container applications.
+The Dockerfile starts with specifying a base image using the `FROM` instruction. This base image is the foundation of your container and can be an operating system like Ubuntu or a pre-made image like `Node.js` or Python. From there, you can use instructions like `COPY` to add files from your local file system to the image, `RUN` to execute commands to install software, and `CMD` or `ENTRYPOINT` to specify what command runs when the container starts.
 
-How `docker-compose.yml` file looks like: https://github.com/edisonzsq/sample-docker-compose/blob/main/docker-compose.yml
+### Docker Image
+A Docker image is an immutable artifact that contains everything needed to run your application. This includes the application code, runtime, libraries, environment variables, and configuration files. Images are built from the instructions in a Dockerfile and then stored in a Docker registry.
+
+Because images are immutable, if you need to make changes to your application, you create a new image. This ensures consistency and reliability, as each image is a snapshot of the application at a specific point in time. Images can be shared and reused, making it easy to deploy your application across different environments.
+
+### Docker Container
+A Docker container is a running instance of a Docker image. When you start a container, Docker takes the image and creates a writable layer on top of the immutable layers of the image. This writable layer allows the application to write to the filesystem, maintaining the changes as long as the container is running.
+
+Containers are isolated from each other and the host system, with their own filesystem, networking, and isolated process space. This isolation ensures that applications do not interfere with each other and can run simultaneously on the same host machine. Containers are lightweight and start quickly, making them ideal for environments where scalability and efficiency are critical.
+
+### Image Registry
+![Image Registry](./assets/image-registry.png)
+An image registry is a centralized place where Docker images can be stored, shared, and managed. The most well-known registry is Docker Hub, which hosts a vast number of public images that anyone can use. In addition to Docker Hub, there are private registries like Amazon Elastic Container Registry (ECR) and Azure Container Registry (ACR), which organizations use to store and manage proprietary images securely.
+
+Registries play a crucial role in the Docker ecosystem, facilitating the distribution and version control of images. They allow developers to push images to the registry and pull them down to any environment for deployment, making it easy to share images across teams and deploy applications consistently.
 </details>
 
 <details>
-<summary>5. Challenge</summary>
+<summary><b>4. Mastering Docker Compose</b></summary>
 
-## Challenge - Containerize your Module 3 Java Application
+![Docker Compose](./assets/basic-taxonomy.png)
 
-Reference this repository: https://github.com/edisonzsq/spring-boot-demo
+Learn how Docker Compose orchestrates multi-container applications, simplifying deployment and scaling with YAML configuration files. Explore an example `docker-compose.yml` file [here](https://github.com/edisonzsq/sample-docker-compose/blob/main/docker-compose.yml).
 
-Commands to try the repository:
+</details>
+
+<details>
+<summary><b>5. Practical Challenge: Containerize a Java Application</b></summary>
+
+Containerize your Module 3 Java application for a hands-on Docker Compose experience.
+
+### Challenge Repository
+Explore and utilize this [Spring Boot demo](https://github.com/edisonzsq/spring-boot-demo) repository.
+
+### Commands to Begin
 
 ```
 git clone https://github.com/edisonzsq/spring-boot-demo
@@ -134,6 +131,6 @@ git checkout docker_compose_with_postgres
 docker compose up
 ```
 
-See the `readme.md` file in the repository for instruction to test the API Endpoint.
+Refer to the `README.md` for API endpoint testing instructions.
 
 </details>
