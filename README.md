@@ -70,6 +70,8 @@ Key distinctions include:
 <details>
 <summary><b>3. Demystifying Docker</b></summary>
 
+<img src="./assets/how-docker-works.png" />
+
 ### Dockerfile
 Think of a Dockerfile as the blueprint for your application's container. It contains a set of instructions that Docker uses to build the container's environment. Each instruction in a Dockerfile adds a layer to the image, with each layer representing a part of the application. For example, one layer might contain your application code, another the libraries it depends on, and another the runtime environment it needs to run.
 
