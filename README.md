@@ -106,7 +106,9 @@ Registries play a crucial role in the Docker ecosystem, facilitating the distrib
 </details>
 
 <details>
-<summary><b>4. Mastering Docker Compose</b></summary>
+<summary><b>4. Introduction to Docker Compose</b></summary>
+
+> Docker Compose is used in development and testing environment only. Not production.
 
 ![Docker Compose](./assets/basic-taxonomy.png)
 
