@@ -44,6 +44,7 @@ In the early days of computing, applications were hosted on bare-metal servers. 
 
 ### Virtualization
 ![Virtualization](./assets/server_virtualization-traditional_virtual_architecture_mobile.jpg)
+
 Virtualization technology was a game-changer for IT infrastructure. By introducing a layer called a hypervisor above the physical hardware, it became possible to divide a single physical server into multiple isolated virtual machines (VMs). Each VM acts like a separate server, capable of running its own operating system and applications. This innovation dramatically increased the efficiency of resource utilization.
 
 The benefits of virtualization include:
@@ -59,24 +60,10 @@ While virtualization was a significant advancement, the technology's evolution d
 
 Key distinctions include:
 
-1. Isolation Level: Containers provide process-level isolation, while VMs offer full isolation of virtualized hardware for each instance.
-2. Performance: Containers have less overhead, leading to better performance and more efficient resource use compared to VMs.
-3. Portability: Containers include all necessary application code and dependencies, making them highly portable across different computing environments.
-4. Use Cases: VMs are still preferred for applications requiring full isolation, extensive resources, or specific OS environments. Containers are ideal for microservices, dev/test scenarios, and applications where density and efficiency are critical.
-
-### An Analogy
-
-Imagine you're planning to open several restaurants, each offering a different cuisine. Think of each restaurant as an application, and the building where it's housed as the server hardware.
-
-1. Virtualization: Apartment Complexes
-Virtualization can be compared to building an apartment complex on your plot of land. Each apartment in the complex is like a virtual machine (VM) - a separate, self-contained unit that shares the overall structure's physical resources (the land and building) but has its own utilities and facilities (like water, electricity, and gas). Each apartment (VM) can be customized to the needs of its occupants (different operating systems and applications), but they all share the underlying infrastructure. This setup allows for efficient use of space (hardware resources), but each apartment still maintains a level of isolation and independence, with its own secured entrances and facilities.
-
-2. Containers: Food Trucks in a Park
-On the other hand, using containers is like setting up food trucks in a public park. The park is the server's operating system, and each food truck is a container. All the food trucks use the park's existing facilities - like water, electricity, and seating areas - but each offers a unique menu (application). Food trucks are quicker and cheaper to set up than building an entire apartment complex. They can move around or make menu changes (application updates) with much more flexibility. However, they rely on the park's existing infrastructure and cannot operate without it, similar to how containers share the host operating system.
-
-So:
-1. Virtualization (Apartment Complexes): Offers more isolation and independence at the cost of being more resource-intensive to set up and maintain. Each apartment is like a full-fledged server that can run its own operating system.
-2. Containers (Food Trucks): More resource-efficient, sharing the underlying infrastructure of the park (operating system) but less isolated. They're quicker to set up and more flexible in deployment, ideal for services that need to scale up or down rapidly.
+1. **Isolation Level:** Containers provide process-level isolation, while VMs offer full isolation of virtualized hardware for each instance.
+2. **Performance:** Containers have less overhead, leading to better performance and more efficient resource use compared to VMs.
+3. **Portability:** Containers include all necessary application code and dependencies, making them highly portable across different computing environments.
+4. **Use Cases:** VMs are still preferred for applications requiring full isolation, extensive resources, or specific OS environments. Containers are ideal for microservices, dev/test scenarios, and applications where density and efficiency are critical.
 
 </details>
 
